@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Launchly — Lanzamos negocios al mundo digital</title>
+<meta name="description" content="Launchly digitaliza tu negocio en Venezuela en 48 horas: web, WhatsApp automatizado y Google, por un pago único desde $299. Sin mensualidades abusivas.">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_VE">
+<meta property="og:title" content="Launchly — Lanzamos negocios al mundo digital">
+<meta property="og:description" content="Launchly digitaliza tu negocio en Venezuela en 48 horas: web, WhatsApp automatizado y Google, por un pago único desde $299. Sin mensualidades abusivas.">
+
+<link rel="icon" href="assets/favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<canvas id="stars-canvas"></canvas>
+
+<!-- ============ NAV ============ -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#top" class="logo">
+      <img src="assets/launchlynobg-trimmed.png" alt="Logo de Launchly" class="logo-img nav-logo-img">
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#soluciones">Soluciones</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#early-access">Early Access</a>
+    </nav>
+
+    <a href="#contacto" class="btn btn-primary btn-nav-cta">Quiero empezar</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-inner">
+
+      <div class="bolty-wrap" aria-hidden="true">
+        <div class="bolty-halo"></div>
+        <img src="assets/Bolty.svg" alt="Bolty, la mascota robot astronauta de Launchly" class="bolty-img" id="boltyImg" onerror="this.style.display='none'; document.getElementById('boltyFallback').style.display='flex';">
+        <div class="bolty-fallback" id="boltyFallback">🚀🤖</div>
+      </div>
+
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Lanzamos negocios al mundo digital
+      </div>
+
+      <h1 class="hero-title">
+        Llega a más clientes. <span class="text-accent">Menos caos.</span> En 48 horas.
+      </h1>
+
+      <p class="hero-subtitle">
+        Digitalizamos tu negocio por completo — web, WhatsApp y Google — con un pago único.
+        Sin agencias caras, sin procesos eternos, sin dolores de cabeza técnicos.
+      </p>
+
+      <p class="hero-trust">Sin mensualidades abusivas · Sin letra pequeña · Entrega garantizada</p>
+
+      <div class="hero-actions">
+        <a href="#contacto" class="btn btn-primary btn-lg">Quiero mi presencia digital</a>
+        <a href="#soluciones" class="btn btn-ghost btn-lg">Ver soluciones</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ TRUST BAR ============ -->
+  <section class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <span class="trust-number">48h</span>
+        <span class="trust-label">De cero a negocio online</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-number">$299</span>
+        <span class="trust-label">Setup Essential desde</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-number">3</span>
+        <span class="trust-label">Soluciones por segmento</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-number">$10</span>
+        <span class="trust-label">Mantenimiento Essential /mes</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOLUCIONES ============ -->
+  <section class="soluciones" id="soluciones">
+    <div class="section-head">
+      <span class="eyebrow">Soluciones</span>
+      <h2 class="section-title">Un kit hecho para tu tipo de negocio</h2>
+      <p class="section-subtitle">No vendemos webs genéricas. Cada segmento tiene un problema distinto — y una solución distinta.</p>
+    </div>
+
+    <div class="cards-grid">
+
+      <article class="card">
+        <div class="card-icon">🏪</div>
+        <span class="card-tag">Locales y Comercios</span>
+        <h3 class="card-title">Cansado de responder siempre lo mismo</h3>
+        <p class="card-pain">"¿Tienen delivery? ¿Cuál es la dirección? ¿Hasta qué hora abren?"</p>
+        <ul class="card-list">
+          <li><span class="arrow">→</span> Web con catálogo de productos</li>
+          <li><span class="arrow">→</span> Google Maps optimizado</li>
+          <li><span class="arrow">→</span> Bot de WhatsApp 24/7</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">💼</div>
+        <span class="card-tag">Profesionales Independientes</span>
+        <h3 class="card-title">Cansado de depender solo del boca a boca</h3>
+        <p class="card-pain">"Se me olvidó la cita, ¿me puedes atender otro día?"</p>
+        <ul class="card-list">
+          <li><span class="arrow">→</span> Portafolio de autoridad</li>
+          <li><span class="arrow">→</span> Sistema de citas automático</li>
+          <li><span class="arrow">→</span> Marca personal profesional</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🛍️</div>
+        <span class="card-tag">Tiendas en Redes Sociales</span>
+        <h3 class="card-title">Cansado de perder pedidos entre cientos de DMs</h3>
+        <p class="card-pain">"Perdón, ¿cuál era tu pedido? Se me traspapeló el chat."</p>
+        <ul class="card-list">
+          <li><span class="arrow">→</span> Catálogo organizado</li>
+          <li><span class="arrow">→</span> Checkout con Zelle / Pago Móvil</li>
+          <li><span class="arrow">→</span> Automatización de pedidos</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ GARANTÍAS ============ -->
+  <section class="garantias">
+    <div class="garantias-inner">
+      <div class="garantia-item">
+        <span class="garantia-icon">🔒</span>
+        <div>
+          <h4>Entrega garantizada</h4>
+          <p>48h o devolución</p>
+        </div>
+      </div>
+      <div class="garantia-item">
+        <span class="garantia-icon">📞</span>
+        <div>
+          <h4>Siempre disponibles</h4>
+          <p>Soporte real, no desaparecemos</p>
+        </div>
+      </div>
+      <div class="garantia-item">
+        <span class="garantia-icon">⚡</span>
+        <div>
+          <h4>Sin tecnicismos</h4>
+          <p>Tú no necesitas entender cómo funciona</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CÓMO FUNCIONA ============ -->
+  <section class="como-funciona" id="como-funciona">
+    <div class="section-head">
+      <span class="eyebrow">Proceso</span>
+      <h2 class="section-title">Cómo funciona</h2>
+      <p class="section-subtitle">Cuatro pasos entre tu negocio y su primer cliente digital.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">01</div>
+        <h3 class="step-title">Nos cuentas de tu negocio</h3>
+        <p class="step-desc">Un formulario corto para entender qué necesitas y a quién le vendes.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">02</div>
+        <h3 class="step-title">Te presentamos tu Kit</h3>
+        <p class="step-desc">Elegimos la solución exacta para tu segmento, sin relleno innecesario.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">03</div>
+        <h3 class="step-title">Ensamblamos en 24-48h</h3>
+        <p class="step-desc">Diseño, contenido y automatizaciones listas, sin que muevas un dedo.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">04</div>
+        <h3 class="step-title">Tu negocio capta clientes</h3>
+        <p class="step-desc">Online, encontrable y respondiendo solo, incluso mientras duermes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EARLY ACCESS ============ -->
+  <section class="early-access" id="early-access">
+    <div class="badge badge-alt">
+      🚀 Programa Early Access — Plazas limitadas
+    </div>
+
+    <h2 class="section-title early-title">Sé de los primeros en lanzar tu negocio con Launchly</h2>
+    <p class="section-subtitle">Estamos en fase de lanzamiento. Los primeros negocios en confiar en Launchly acceden a condiciones especiales que no estarán disponibles después.</p>
+
+    <div class="slots">
+      <div class="slot slot-taken" title="Ocupado"></div>
+      <div class="slot slot-taken" title="Ocupado"></div>
+      <div class="slot slot-free" title="Disponible"></div>
+      <div class="slot slot-free" title="Disponible"></div>
+      <div class="slot slot-free" title="Disponible"></div>
+    </div>
+    <p class="slots-label"><strong>2 de 5</strong> plazas ocupadas este mes</p>
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <span class="benefit-icon">💰</span>
+        <h4>Precio de fundador</h4>
+        <p>La tarifa más baja que ofreceremos jamás.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">⭐</span>
+        <h4>Atención prioritaria</h4>
+        <p>Tu proyecto pasa primero en la fila.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">🧊</span>
+        <h4>Precio congelado</h4>
+        <p>Tu mantenimiento no sube con el tiempo.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">🔁</span>
+        <h4>Revisiones extra</h4>
+        <p>Más rondas de ajustes incluidas.</p>
+      </div>
+    </div>
+
+    <a href="#contacto" class="btn btn-primary btn-lg">Reservar mi plaza</a>
+  </section>
+
+  <!-- ============ FORMULARIO / CONTACTO ============ -->
+  <section class="contacto" id="contacto">
+    <div class="section-head">
+      <span class="eyebrow">Empecemos</span>
+      <h2 class="section-title">Cuéntanos de tu negocio</h2>
+      <p class="section-subtitle">Tres pasos rápidos. Bolty te acompaña en cada uno.</p>
+    </div>
+
+    <div class="form-card">
+
+      <!-- Progreso -->
+      <div class="progress" id="progress">
+        <div class="progress-step active" data-step="1">
+          <span class="progress-circle">1</span>
+          <span class="progress-label">Tu negocio</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="2">
+          <span class="progress-circle">2</span>
+          <span class="progress-label">Tu necesidad</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="3">
+          <span class="progress-circle">3</span>
+          <span class="progress-label">Tus datos</span>
+        </div>
+      </div>
+
+      <form id="multiForm" novalidate>
+
+        <!-- PASO 1 -->
+        <div class="form-step active" data-step="1">
+          <div class="bolty-tip">
+            <span class="bolty-tip-icon">🤖</span>
+            <p>¡Hola! Soy Bolty. Para empezar, cuéntame: ¿qué tipo de negocio tienes?</p>
+          </div>
+
+          <div class="option-grid" data-group="tipoNegocio">
+            <button type="button" class="option-card" data-value="Local o Comercio">
+              <span class="option-icon">🏪</span>
+              <span>Local / Comercio</span>
+            </button>
+            <button type="button" class="option-card" data-value="Profesional Independiente">
+              <span class="option-icon">💼</span>
+              <span>Profesional</span>
+            </button>
+            <button type="button" class="option-card" data-value="Tienda en Redes">
+              <span class="option-icon">🛍️</span>
+              <span>Tienda en redes</span>
+            </button>
+            <button type="button" class="option-card" data-value="Otro">
+              <span class="option-icon">✨</span>
+              <span>Otro</span>
+            </button>
+          </div>
+
+          <div class="form-nav">
+            <span></span>
+            <button type="button" class="btn btn-primary btn-next" data-next="2" disabled>Continuar</button>
+          </div>
+        </div>
+
+        <!-- PASO 2 -->
+        <div class="form-step" data-step="2">
+          <div class="bolty-tip">
+            <span class="bolty-tip-icon">🤖</span>
+            <p>Perfecto. Dime, ¿qué es lo que más necesitas ahora mismo?</p>
+          </div>
+
+          <div class="option-grid" data-group="necesidad">
+            <button type="button" class="option-card" data-value="Página web">
+              <span class="option-icon">🌐</span>
+              <span>Página web</span>
+            </button>
+            <button type="button" class="option-card" data-value="Aparecer en Google">
+              <span class="option-icon">🔍</span>
+              <span>Aparecer en Google</span>
+            </button>
+            <button type="button" class="option-card" data-value="WhatsApp automatizado">
+              <span class="option-icon">💬</span>
+              <span>WhatsApp automatizado</span>
+            </button>
+            <button type="button" class="option-card" data-value="Todo">
+              <span class="option-icon">🚀</span>
+              <span>Todo</span>
+            </button>
+          </div>
+
+          <div class="form-nav">
+            <button type="button" class="btn btn-ghost btn-prev" data-prev="1">Atrás</button>
+            <button type="button" class="btn btn-primary btn-next" data-next="3" disabled>Continuar</button>
+          </div>
+        </div>
+
+        <!-- PASO 3 -->
+        <div class="form-step" data-step="3">
+          <div class="bolty-tip">
+            <span class="bolty-tip-icon">🤖</span>
+            <p>Ya casi terminamos. Déjame tus datos para contactarte por WhatsApp.</p>
+          </div>
+
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+          </div>
+          <div class="field">
+            <label for="negocio">Nombre del negocio</label>
+            <input type="text" id="negocio" name="negocio" placeholder="Nombre de tu negocio" required>
+          </div>
+          <div class="field">
+            <label for="whatsapp">WhatsApp</label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="+58 412 000 0000" required>
+          </div>
+          <div class="field">
+            <label for="mensaje">Mensaje (opcional)</label>
+            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntanos algo más sobre tu negocio..."></textarea>
+          </div>
+
+          <div class="form-nav">
+            <button type="button" class="btn btn-ghost btn-prev" data-prev="2">Atrás</button>
+            <button type="submit" class="btn btn-primary">Enviar solicitud</button>
+          </div>
+        </div>
+
+      </form>
+
+      <!-- ÉXITO -->
+      <div class="form-success" id="formSuccess">
+        <div class="success-bolty">🤖✨</div>
+        <h3 id="successTitle">¡Listo, <span id="successName">amigo</span>!</h3>
+        <p>Recibimos tu solicitud. Te escribiremos muy pronto por WhatsApp para lanzar tu negocio al mundo digital.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo">
+        <img src="assets/launchlynobg-trimmed.png" alt="Logo de Launchly" class="logo-img footer-logo-img">
+      </span>
+      <p>Lanzamos negocios al mundo digital.</p>
+    </div>
+    <div class="footer-links">
+      <a href="privacidad.html">Política de privacidad</a>
+      <!-- PENDIENTE: reemplazar con número de WhatsApp Business de Launchly -->
+      <a href="https://wa.me/+34661069083?text=Hola%2C%20quiero%20saber%20como%20lanzar%20mi%20negocio%20al%20mundo%20digital%20%F0%9F%9A%80%20" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://instagram.com/Launchly.ve" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2025 Launchly. Todos los derechos reservados.</p>
+</footer>
+
+<a href="#contacto" class="bolty-widget" id="boltyWidget" aria-label="Hablemos por WhatsApp — ir al formulario de contacto">
+  <span class="bolty-widget-bubble">¡Hablemos! 🚀</span>
+  <img src="assets/Bolty.svg" alt="Bolty" class="bolty-widget-img">
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
