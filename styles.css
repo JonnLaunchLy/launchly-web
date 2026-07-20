@@ -934,6 +934,12 @@ main, header, footer, section {
   margin-top: 8px;
 }
 
+.form-error {
+  color: #FF6B6B;
+  font-size: 0.88rem;
+  margin: -8px 0 16px;
+}
+
 /* Success screen */
 .form-success {
   display: none;

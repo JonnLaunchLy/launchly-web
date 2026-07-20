@@ -345,12 +345,17 @@ function initMultiStepForm() {
   });
 
   // Submit
-  form.addEventListener('submit', (e) => {
+  const WEBHOOK_URL = 'https://hook.eu2.make.com/lbo5es8z1j8uqvnet6opznjy2qrkheh1';
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const formError = document.getElementById('formError');
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const nombre = document.getElementById('nombre').value.trim();
     const negocio = document.getElementById('negocio').value.trim();
     const whatsapp = document.getElementById('whatsapp').value.trim();
+    const mensaje = document.getElementById('mensaje').value.trim();
 
     if (!nombre || !negocio || !whatsapp) {
       const firstEmpty = [
@@ -364,13 +369,37 @@ function initMultiStepForm() {
       return;
     }
 
-    // PENDIENTE: conectar con webhook de Make.com para enviar estos datos a Notion CRM
-    const successName = document.getElementById('successName');
-    if (successName) successName.textContent = nombre;
+    if (formError) formError.hidden = true;
+    if (submitBtn) submitBtn.disabled = true;
 
-    form.style.display = 'none';
-    document.querySelector('.progress').style.display = 'none';
-    successScreen.classList.add('active');
+    try {
+      const response = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nombre,
+          negocio,
+          whatsapp,
+          mensaje,
+          tipoNegocio: state.tipoNegocio,
+          necesidad: state.necesidad
+        })
+      });
+
+      if (response.status !== 200) {
+        throw new Error(`Webhook respondio con status ${response.status}`);
+      }
+
+      const successName = document.getElementById('successName');
+      if (successName) successName.textContent = nombre;
+
+      form.style.display = 'none';
+      document.querySelector('.progress').style.display = 'none';
+      successScreen.classList.add('active');
+    } catch (err) {
+      if (formError) formError.hidden = false;
+      if (submitBtn) submitBtn.disabled = false;
+    }
   });
 }
 
