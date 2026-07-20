@@ -879,6 +879,15 @@ main, header, footer, section {
 
 .option-icon { font-size: 1.6rem; }
 
+.card-icon svg,
+.garantia-icon svg,
+.benefit-icon svg,
+.option-icon svg {
+  width: 1em;
+  height: 1em;
+  display: block;
+}
+
 .field {
   margin-bottom: 20px;
 }
@@ -939,6 +948,14 @@ main, header, footer, section {
   font-size: 3.5rem;
   margin-bottom: 20px;
   animation: bolty-float 3s ease-in-out infinite;
+}
+
+.success-bolty svg {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.12em;
+  margin-left: 0.1em;
 }
 
 .form-success h3 {
