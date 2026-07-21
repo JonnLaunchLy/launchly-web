@@ -947,6 +947,15 @@ main, header, footer, section {
   margin: -8px 0 16px;
 }
 
+.visually-hidden-field {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 /* Success screen */
 .form-success {
   display: none;

@@ -356,6 +356,7 @@ function initMultiStepForm() {
     const negocio = document.getElementById('negocio').value.trim();
     const whatsapp = document.getElementById('whatsapp').value.trim();
     const mensaje = document.getElementById('mensaje').value.trim();
+    const sitioWeb = document.getElementById('sitioWeb').value.trim();
 
     if (!nombre || !negocio || !whatsapp) {
       const firstEmpty = [
@@ -371,6 +372,16 @@ function initMultiStepForm() {
 
     if (formError) formError.hidden = true;
     if (submitBtn) submitBtn.disabled = true;
+
+    if (sitioWeb) {
+      const successName = document.getElementById('successName');
+      if (successName) successName.textContent = nombre;
+
+      form.style.display = 'none';
+      document.querySelector('.progress').style.display = 'none';
+      successScreen.classList.add('active');
+      return;
+    }
 
     try {
       const response = await fetch(WEBHOOK_URL, {
