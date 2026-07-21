@@ -647,6 +647,8 @@ main, header, footer, section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-top: 1px solid var(--border-subtle);
+  background: rgba(155, 92, 250, 0.03);
 }
 
 .early-title { margin-bottom: 14px; }
@@ -743,6 +745,7 @@ main, header, footer, section {
   padding: 110px 24px 140px;
   max-width: 720px;
   margin: 0 auto;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .form-card {
