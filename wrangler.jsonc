@@ -2,6 +2,7 @@
   "name": "launchly-ve",
   "compatibility_date": "2026-07-08",
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "not_found_handling": "404-page"
   }
 }
