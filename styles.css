@@ -1221,3 +1221,10 @@ main, header, footer, section {
   .slots { gap: 10px; }
   .slot { width: 36px; height: 36px; }
 }
+
+/* ============================================
+   404 PAGE
+============================================ */
+.notfound-logo {
+  margin-bottom: 32px;
+}

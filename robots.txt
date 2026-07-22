@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://launchly-ve.jonathanlopez1088.workers.dev/sitemap.xml
