@@ -5,7 +5,12 @@
       "Bash(mkdir -p /tmp/pw-check)",
       "Read(//tmp/**)",
       "Bash(npm init *)",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(node screenshot.mjs icons)",
+      "Bash(node screenshot.mjs icons2)",
+      "Bash(npx wrangler *)",
+      "Bash(tee /c/Users/Jonathan/AppData/Local/Temp/claude/C--Users-Jonathan-Launchly-Proyectos-launchly-web/65f69b31-6dd0-4c09-ab3e-5ddf1c677b79/scratchpad/wrangler8.log)",
+      "Bash(node perf_check.mjs)"
     ]
   }
 }
