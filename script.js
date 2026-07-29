@@ -6,6 +6,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initStarfield();
+  initBoltyParallax();
   initNavbar();
   initMobileMenu();
   initScrollReveal();
@@ -39,6 +40,13 @@ function initStarfield() {
   let scrollY = window.scrollY || 0;
   let lastFrameTime = performance.now();
   let shootingStarTimer = randomBetween(3000, 7000);
+
+  // Mouse parallax (desktop only — no synthetic touch simulation).
+  const isDesktopPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  let targetMouseX = 0;
+  let targetMouseY = 0;
+  let currentMouseX = 0;
+  let currentMouseY = 0;
 
   function randomBetween(min, max) {
     return Math.random() * (max - min) + min;
@@ -105,7 +113,10 @@ function initStarfield() {
     for (let i = 0; i < stars.length; i++) {
       const s = stars[i];
       const parallaxOffset = scrollY * s.depth * 0.35;
-      let y = s.y + parallaxOffset;
+      const mouseOffsetX = currentMouseX * s.depth * 15;
+      const mouseOffsetY = currentMouseY * s.depth * 15;
+      let x = s.x + mouseOffsetX;
+      let y = s.y + parallaxOffset + mouseOffsetY;
 
       // wrap vertically so stars never permanently scroll away
       const wrapHeight = height * 3;
@@ -119,18 +130,18 @@ function initStarfield() {
 
       if (s.glow) {
         const glowRadius = s.size * 5;
-        const gradient = ctx.createRadialGradient(s.x, wrappedY, 0, s.x, wrappedY, glowRadius);
+        const gradient = ctx.createRadialGradient(x, wrappedY, 0, x, wrappedY, glowRadius);
         gradient.addColorStop(0, `rgba(${r},${g},${b},${opacity * 0.35})`);
         gradient.addColorStop(1, `rgba(${r},${g},${b},0)`);
         ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(s.x, wrappedY, glowRadius, 0, Math.PI * 2);
+        ctx.arc(x, wrappedY, glowRadius, 0, Math.PI * 2);
         ctx.fill();
       }
 
       ctx.beginPath();
       ctx.fillStyle = `rgba(${r},${g},${b},${opacity})`;
-      ctx.arc(s.x, wrappedY, s.size, 0, Math.PI * 2);
+      ctx.arc(x, wrappedY, s.size, 0, Math.PI * 2);
       ctx.fill();
     }
   }
@@ -174,6 +185,9 @@ function initStarfield() {
     const dt = time - lastFrameTime;
     lastFrameTime = time;
 
+    currentMouseX += (targetMouseX - currentMouseX) * 0.08;
+    currentMouseY += (targetMouseY - currentMouseY) * 0.08;
+
     ctx.clearRect(0, 0, width, height);
     drawStars(time);
     maybeSpawnShootingStar(dt);
@@ -187,8 +201,55 @@ function initStarfield() {
     scrollY = window.scrollY;
   }, { passive: true });
 
+  // Desktop-only mouse parallax — no touch simulation on mobile/tablet.
+  if (isDesktopPointer) {
+    window.addEventListener('mousemove', (e) => {
+      targetMouseX = (e.clientX / width - 0.5) * 2;
+      targetMouseY = (e.clientY / height - 0.5) * 2;
+    }, { passive: true });
+  }
+
   resize();
   requestAnimationFrame(frame);
+}
+
+// ------------------------------------------------------------
+// BOLTY MOUSE PARALLAX
+// - Desktop only (hover + fine pointer); mobile/touch is untouched.
+// - Moves the #boltyParallax wrapper opposite to the cursor via
+//   translate(), layered on top of the existing bolty-float sway
+//   animation which stays on the inner #boltyImg.
+// ------------------------------------------------------------
+function initBoltyParallax() {
+  const wrap = document.getElementById('boltyParallax');
+  if (!wrap) return;
+
+  const isDesktopPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (!isDesktopPointer) return;
+
+  const MAX_OFFSET = 11; // px
+
+  let targetX = 0;
+  let targetY = 0;
+  let currentX = 0;
+  let currentY = 0;
+
+  window.addEventListener('mousemove', (e) => {
+    const nx = (e.clientX / window.innerWidth - 0.5) * 2;
+    const ny = (e.clientY / window.innerHeight - 0.5) * 2;
+    // opposite direction to the cursor: feels closer than the background
+    targetX = -nx * MAX_OFFSET;
+    targetY = -ny * MAX_OFFSET;
+  }, { passive: true });
+
+  function tick() {
+    currentX += (targetX - currentX) * 0.08;
+    currentY += (targetY - currentY) * 0.08;
+    wrap.style.transform = `translate(${currentX.toFixed(2)}px, ${currentY.toFixed(2)}px)`;
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
 }
 
 function debounce(fn, delay) {
@@ -263,7 +324,7 @@ function initMobileMenu() {
 // ------------------------------------------------------------
 function initScrollReveal() {
   const targets = document.querySelectorAll(
-    '.card, .step, .benefit-card, .garantia-item, .section-head, .form-card'
+    '.card, .step, .benefit-card, .benefit-item, .garantia-item, .section-head, .form-card'
   );
 
   targets.forEach(el => el.classList.add('reveal'));

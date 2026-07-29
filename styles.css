@@ -336,9 +336,17 @@ main, header, footer, section {
   z-index: 0;
 }
 
-.bolty-img {
+.bolty-parallax {
   position: relative;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.bolty-img {
+  position: relative;
   width: 150px;
   height: 150px;
   object-fit: contain;
@@ -700,7 +708,8 @@ main, header, footer, section {
 
 .benefits-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1.3fr 1fr;
+  grid-template-areas: "featured compact";
   gap: 18px;
   width: 100%;
   margin-bottom: 44px;
@@ -736,6 +745,64 @@ main, header, footer, section {
 
 .benefit-card p {
   font-size: 0.85rem;
+}
+
+/* Featured card — "Precio de fundador" gets outsized presence */
+.benefit-featured {
+  grid-area: featured;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px 28px;
+}
+
+.benefit-featured .benefit-icon {
+  font-size: 2.4rem;
+  justify-content: flex-start;
+  margin-bottom: 18px;
+}
+
+.benefit-featured h4 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.benefit-featured p {
+  font-size: 1rem;
+}
+
+/* Compact list — remaining 3 benefits, icon in line with text */
+.benefits-compact {
+  grid-area: compact;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 22px 20px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.benefit-item .benefit-icon {
+  font-size: 1.3rem;
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.benefit-item .benefit-text h4 {
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+}
+
+.benefit-item .benefit-text p {
+  font-size: 0.8rem;
 }
 
 /* ============================================
@@ -1203,7 +1270,7 @@ main, header, footer, section {
 
   .option-grid { grid-template-columns: 1fr; }
 
-  .benefits-grid { grid-template-columns: 1fr; }
+  .benefits-grid { grid-template-columns: 1fr; grid-template-areas: "featured" "compact"; }
 
   .form-card { padding: 32px 22px; }
 
